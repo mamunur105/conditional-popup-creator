@@ -2,10 +2,10 @@
 /**
  * Plugin Name: Popups creator
  * Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
- * Description: A brief description of the Plugin.
+ * Description: This is a popup creator for 
  * Version: The Plugin's Version Number, e.g.: 1.0
- * Author: Name Of The Plugin Author
- * Author URI: http://URI_Of_The_Plugin_Author
+ * Author: Mamunur Rashid
+ * Author URI: https://profiles.wordpress.org/mamunur105/
  * Text Domain: popupcreator
  * Domain Path: /languages/
  * version: 1.0
