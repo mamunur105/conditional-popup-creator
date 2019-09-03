@@ -1,4 +1,9 @@
 /*  */
+.jBox-Modal {
+    /* transition: 0.3s; */
+    /* top: 50% !important; */
+    /* transform: translateY(-50%); */
+}
 .data-modal{
     display: none;
 }

@@ -70,6 +70,7 @@
             'izimodal-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/jBox.all.min.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true),
             'popmodal-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/main.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true)
         );
+        wp_enqueue_style( 'dashicons' );
         foreach ($styles as $handle => $info) {
             # code...
             wp_enqueue_style($handle, $info['path'],$info['dept'],$info['version']);

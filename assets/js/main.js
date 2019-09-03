@@ -4,6 +4,8 @@
     var modals = [];
     var exitmodal = [];
     var popupsdisplayed = false;
+    var popups_time_srart = false ;
+
 
     $(document).ready(function() {
         
@@ -14,8 +16,6 @@
             var delay =  modalelement[index].getAttribute('data-delay');
             var datatitle =  modalelement[index].getAttribute('data-title');
             var delaymillisecond = delay * 1000;
-
-    
             if(dataexit == 'exit'){
                 delaymillisecond = 0;
             }
@@ -39,48 +39,35 @@
 
             });
             if(dataexit == 'pageload'){
-
-                modals[index].open();
-                
+                modals[index].open();                
             }else{
                 exitmodal.push(modals[index]);
-                // console.log(exitmodal.length);
-              
             }
         } 
-        if (exitmodal.length > 0 && !popupsdisplayed) {
-            window.onbeforeunload = function() {      
+        setTimeout(function(){   
+            popups_time_srart = true ;
+        }, 3000);
+
+        var mouseY = 0;
+        var topValue = 0;
+        window.addEventListener("mouseout",function(e){
+            
+            mouseY = e.clientY;
+
+            if(mouseY<topValue && popups_time_srart == true) {
                 if(!popupsdisplayed){
                     for (i in exitmodal) {
                         exitmodal[i].open();//
                     }
                     popupsdisplayed = true;
-                    return true;
                 } 
-                return true;   
             }
-            
-            
-        }
 
-        
-        // onload
-    
-
-
-
-
-
+        },
+        false);
 
     });
     
-
-
-
-
-
-
-
 
 
 
