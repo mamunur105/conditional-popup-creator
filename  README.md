@@ -1,4 +1,4 @@
-Tutorial number : 22.1 to 
-subject : 
-description: পপআপ ক্রিয়েটর প্লাগইন ইন্ট্রোডাকশন এবং বুটস্ট্র‍্যাপিং
-github :  
+popups creator plugin,
+
+1 easyly cn create a popup for any specific page and also can show a popups after 
+delay

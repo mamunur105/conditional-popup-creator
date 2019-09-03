@@ -4,6 +4,7 @@
     var modals = [];
     var exitmodal = [];
     var popupsdisplayed = false;
+    var popups_time_srart = false ;
 
     $(document).ready(function() {
         
@@ -41,17 +42,26 @@
  
             }
         } 
+
+        setTimeout(function(){   
+            popups_time_srart = true ;
+        }, 3000);
+
+        var mouseY = 0;
+        var topValue = 0;
+        window.addEventListener("mouseout",function(e){
+            mouseY = e.clientY;
+            if(mouseY<topValue && popups_time_srart == true) {
+                if(!popupsdisplayed){
+                    for (i in exitmodal) {
+                        exitmodal[i].open();//
+                    }
+                    popupsdisplayed = true;
+                } 
+            }
+        },false);
+
     });
     
-
-
-
-
-
-
-
-
-
-
 })(jQuery);
 

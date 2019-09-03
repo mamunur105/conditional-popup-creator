@@ -1,19 +1,19 @@
 <?php
-
-
+	
 require_once("metabox_constructor_class.php");
-
+// initial metabox for popups_creator post type 
 $metabox = new Metabox_Constructor(array(
-	'id' => 'popups_id',
-	'title' => __('Metabox Demo', 'experiment_functionality'),
-	'screen' => 'popups_creator'
+	'id' 		=> 'popups_id',
+	'title' 	=> __('Metabox Demo', 'popupcreator'),
+	'screen' 	=> 'popups_creator'
 ));
-
+// add checkbox fied 
 $metabox->addCheckbox(array(
 	'id' => 'popups_activation_field',
-	'label' => 'Active/Deactive',
-	'desc' => 'Active Popup Or Popups Is not activate'
+	'label' => __('Active/Deactive','popupcreator'),
+	'desc' => __('Active Popup Or Popups Is not activate','popupcreator')
 ));
+// page list 
 function metabox_for_pagelist(){
 	global $post;
 	$args = array(
@@ -23,57 +23,58 @@ function metabox_for_pagelist(){
 	$page_list = array();
 	foreach($pages as $post){
 		setup_postdata( $post );
-		$page_list[get_the_ID()]= get_the_title(get_the_ID());
+		$page_list[get_the_ID()]= __(get_the_title(get_the_ID()),'popupcreator');
 	}
 	return $page_list;
 }
-
+// add select field 
 $metabox->addSelect(array(
 	'id' => 'popups_select_forpage',
-	'label' => 'Popups  For Page',
-	'desc' => 'Select a page for shoing popups',
+	'label' => __('Popups  For Page','popupcreator'),
+	'desc' => __('Select a page for shoing popups','popupcreator'),
 	'options' => metabox_for_pagelist() 
 ));
-
+// radio field 
 $metabox->addRadio(
 	array(
 		'id' => 'dispay_exit_or_pageload',
-		'label'=>'Display popup'
+		'label'=> __('Display popup','popupcreator')
 	),
 	array(
-		'pageload' => 'Display on page load'
-		// 'exit'=> 'Display on exit'
+		'pageload' => __('Display on page load','popupcreator'),
+		'exit'=> __('Display on exit','popupcreator')
 	)
 );
-// addRadio
+// text field
 $metabox->addText(array(
 	'id' => 'popups_url_field',
-	'label' => 'Url',
-	'desc' => 'Input Url'
+	'label' => __('Url','popupcreator'),
+	'desc' => __('Input Url','popupcreator')
 
 ));
-
+// number type field 
 $metabox->addNumber(array(
 	'id' => 'popups_delay',
-	'label' => 'Delay Time ',
+	'label' => __('Delay Time ','popupcreator'),
 	'default' => 1,
-	'desc' => 'Delay timer Secound example:1 (1s)'
+	'desc' => __('Delay timer Secound example:1 (1s)','popupcreator')
 ));
-
+// checkbox field 
 $metabox->addCheckbox(array(
 	'id' => 'popups_thumbnail_field',
-	'label' => 'Show Popup Image',
+	'label' => __('Show Popup Image','popupcreator'),
 	'default' => 'on',
-	'desc' => 'Click checkbox for show image'
+	'desc' => __('Click checkbox for show image','popupcreator')
 ));
-
+// select field 
 $metabox->addSelect(array(
 	'id' => 'popups_select_field',
-	'label' => 'Image Size ',
-	'desc' => 'select image size ',
+	'label' => __('Image Size ','popupcreator'),
+	'desc' => __('select image size ','popupcreator'),
 	'options' => array(
-		'full' => "Full",
-		'popup-landscape' => "Landscape",
-		'popup-square' => 'Squere'
+		'full' => __("Full",'popupcreator'),
+		'popup-landscape' => __("Landscape",'popupcreator'),
+		'popup-square' => __('Squere','popupcreator')
 	)
 ));
+// end metabox field for popups creator 

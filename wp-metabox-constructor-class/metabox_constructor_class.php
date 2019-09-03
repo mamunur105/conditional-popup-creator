@@ -396,7 +396,6 @@
 			public function show_field_select($field, $meta) {
 				$this->before_field($field);
 				
-
 					echo sprintf('<select name="%1$s" class="%2$s" id="%1$s">',esc_attr( $field['id'] ),esc_attr( $this->get_block_element_class_with_namespace($field['type']) ));
 						foreach ($field['options'] as $key => $value) {
 
