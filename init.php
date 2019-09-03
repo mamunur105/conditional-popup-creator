@@ -1,16 +1,15 @@
 <?php
 /**
- * Plugin Name: Popups creator
- * Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
+ * Plugin Name: Conditional Popups creator
+ * Plugin URI: https://profiles.wordpress.org/mamunur105/conditional-popups-creator
  * Description: This is a popup creator for 
- * Version: The Plugin's Version Number, e.g.: 1.0
  * Author: Mamunur Rashid
  * Author URI: https://profiles.wordpress.org/mamunur105/
  * Text Domain: popupcreator
  * Domain Path: /languages/
+ * License: GPLv2 or later
  * version: 1.0
- */
-
+ **/
 
  class PopupCreatetor {
 
@@ -24,7 +23,6 @@
         add_action( 'init', array( $this ,'register_popup_size' ) );
         add_action( 'admin_init', array( $this ,'fileinclude' ) );
         add_action( 'wp_footer', array( $this ,'popup_markup' ) );
-
     }
 
     function load_textdomain() {
@@ -57,11 +55,8 @@
             # code...
             wp_enqueue_script($handle, $info['path'], $info['dept'], $info['version'], $info['footer']);
         }
-
-    
     }
-    public function frontend_scripts(){
-        
+    public function frontend_scripts(){  
         $styles = array(
             'jBox-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/jBox.all.min.css','dept'=>array(),'version'=> self::version),
             'popmodal-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/main.css','dept'=>array(),'version'=> self::version)
@@ -100,15 +95,13 @@
                 break;
         }
 
-       
-
     }
     public function cx_popups_init() {
         $labels = array(
             'name'               => _x( 'Popups Creator', 'post type general name', 'popupcreator' ),
-            'singular_name'      => _x( 'Popup', 'post type singular name', 'popupcreator' ),
-            'menu_name'          => _x( 'Popups', 'admin menu', 'popupcreator' ),
-            'name_admin_bar'     => _x( 'Popup', 'add new on admin bar', 'popupcreator' ),
+            'singular_name'      => _x( 'Popup Creator', 'post type singular name', 'popupcreator' ),
+            'menu_name'          => _x( 'Popup Creator', 'admin menu', 'popupcreator' ),
+            'name_admin_bar'     => _x( 'Popup Creator', 'add new on admin bar', 'popupcreator' ),
             'add_new'            => _x( 'Add New', 'Popup', 'popupcreator' ),
             'add_new_item'       => __( 'Add New Popup', 'popupcreator' ),
             'new_item'           => __( 'New Popup', 'popupcreator' ),
@@ -161,7 +154,7 @@
             $thumbnailimage = get_post_meta(get_the_ID(),'popups_thumbnail_field',true);
             
             if (is_page($page_id)) { 
-            ?>
+                ?>
                 <!-- Modal structure -->
                 <div class="data-modal" data-title="<?php echo esc_attr(get_the_title()); ?>" data-delay="<?php echo esc_attr($delay); ?>" data-exit="<?php echo esc_attr($dataexit); ?>" data-popup-id="<?php esc_attr(get_the_ID()); ?>">
                     <button class="close-modal" data-button="Close" title="Close"></button> 
@@ -179,14 +172,13 @@
                     </div>
                 </div>
 
-            <?php    
+                <?php    
             }
         
         }
         
     }
-  
-     
+      
  }
 
  new PopupCreatetor();

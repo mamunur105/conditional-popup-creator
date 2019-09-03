@@ -361,7 +361,7 @@
 					$meta = isset($field['default']);
 				}
 				echo sprintf(
-					'<input type="number" class="%1$s" id="%2$s" name="%2$s" value="%3$s">',
+					'<input type="number" class="%1$s" id="%2$s" min="0" name="%2$s" value="%3$s">',
 					esc_attr( $this->get_block_element_class_with_namespace($field['type']) ),
 					esc_attr( $field['id'] ),
 					esc_attr( $meta )

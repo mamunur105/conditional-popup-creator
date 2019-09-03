@@ -6,6 +6,7 @@
     var popupsdisplayed = false;
     var popups_time_srart = false ;
 
+
     $(document).ready(function() {
         
         var modalelement = document.querySelectorAll('.data-modal');
@@ -18,7 +19,7 @@
             if(dataexit == 'exit'){
                 delaymillisecond = 0;
             }
-
+            // console.log(delayinmilisec);
             modals[index] = new jBox('Modal', {
                 closeButton: false, // Remove close button
                 closeOnClick: false, // Remove close on click events
@@ -27,22 +28,22 @@
                 title: '<div class="data-title">'+datatitle+'</div>',
                 minWidth: 600,
                 maxWidth:800,
+                // maxHeight:700,
                 content: datacontant,
                 onCreated: function () {
                     this.content.find('.close-modal').on('click', function() {
                     this.close();
                     }.bind(this));
                 }
+                // open:funjction
 
             });
             if(dataexit == 'pageload'){
-                modals[index].open();
+                modals[index].open();                
             }else{
                 exitmodal.push(modals[index]);
- 
             }
         } 
-
         setTimeout(function(){   
             popups_time_srart = true ;
         }, 3000);
@@ -50,7 +51,9 @@
         var mouseY = 0;
         var topValue = 0;
         window.addEventListener("mouseout",function(e){
+            
             mouseY = e.clientY;
+
             if(mouseY<topValue && popups_time_srart == true) {
                 if(!popupsdisplayed){
                     for (i in exitmodal) {
@@ -59,9 +62,14 @@
                     popupsdisplayed = true;
                 } 
             }
-        },false);
+
+        },
+        false);
 
     });
     
+
+
+
 })(jQuery);
 
