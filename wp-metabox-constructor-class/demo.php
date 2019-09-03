@@ -1,28 +1,19 @@
 <?php
-
-	//	https://github.com/MatthewKosloski/wp-metabox-constructor-class#installation
-	// updated 
-	// https://github.com/mamunur105/wp-metabox-constructor-class
 	
 require_once("metabox_constructor_class.php");
-
+// initial metabox for popups_creator post type 
 $metabox = new Metabox_Constructor(array(
-	'id' => 'popups_id',
-	'title' => __('Metabox Demo', 'experiment_functionality'),
-	'screen' => 'popups_creator'
+	'id' 		=> 'popups_id',
+	'title' 	=> __('Metabox Demo', 'popupcreator'),
+	'screen' 	=> 'popups_creator'
 ));
-
-// $metabox->addWysiwyg(array(
-// 	'id' => 'metabox_wysiwyg_custom', // required
-// 	'label' => 'WYSIWYG', // required
-// 	'desc' => 'You can add your own html markup here '
-// ));
-
+// add checkbox fied 
 $metabox->addCheckbox(array(
 	'id' => 'popups_activation_field',
-	'label' => 'Active/Deactive',
-	'desc' => 'Active Popup Or Popups Is not activate'
+	'label' => __('Active/Deactive','popupcreator'),
+	'desc' => __('Active Popup Or Popups Is not activate','popupcreator')
 ));
+// page list 
 function metabox_for_pagelist(){
 	global $post;
 	$args = array(
@@ -36,139 +27,54 @@ function metabox_for_pagelist(){
 	}
 	return $page_list;
 }
-
+// add select field 
 $metabox->addSelect(array(
 	'id' => 'popups_select_forpage',
-	'label' => 'Popups  For Page',
-	'desc' => 'Select a page for shoing popups',
+	'label' => __('Popups  For Page','popupcreator'),
+	'desc' => __('Select a page for shoing popups','popupcreator'),
 	'options' => metabox_for_pagelist() 
 ));
-
-// $metabox->addCheckbox(array(
-// 	'id' => 'popups_display_onpageload',
-// 	'label' => 'Auto Hide',
-// 	'desc' => 'Popup auto hide'
-// ));
-
-// $metabox->addCheckbox(array(
-// 	'id' => 'popups_display_onexit',
-// 	'label' => 'Auto Hide',
-// 	'desc' => 'Popup On exit'
-// ));
+// radio field 
 $metabox->addRadio(
 	array(
 		'id' => 'dispay_exit_or_pageload',
-		'label'=>'Display popup'
+		'label'=> __('Display popup','popupcreator')
 	),
 	array(
-		'pageload' => 'Display on page load',
-		'exit'=> 'Display on exit'
+		'pageload' => __('Display on page load','popupcreator'),
+		'exit'=> __('Display on exit','popupcreator')
 	)
 );
-// addRadio
+// text field
 $metabox->addText(array(
 	'id' => 'popups_url_field',
-	'label' => 'Url',
-	'desc' => 'Input Url'
+	'label' => __('Url','popupcreator'),
+	'desc' => __('Input Url','popupcreator')
 
 ));
-
+// number type field 
 $metabox->addNumber(array(
 	'id' => 'popups_delay',
-	'label' => 'Delay Time ',
+	'label' => __('Delay Time ','popupcreator')
 	'default' => 1,
-	'desc' => 'Delay timer Secound example:1 (1s)'
+	'desc' => __('Delay timer Secound example:1 (1s)','popupcreator')
 ));
-
-// $metabox->addImage(array(
-// 	'id' => 'popups_image_field',
-// 	'label' => 'Image Upload Field',
-// 	'desc' => 'Upload an image, or change it, by clicking the button below the preview.'
-// ));
-
+// checkbox field 
 $metabox->addCheckbox(array(
 	'id' => 'popups_thumbnail_field',
-	'label' => 'Show Popup Image',
+	'label' => __('Show Popup Image','popupcreator'),
 	'default' => 'on',
-	'desc' => 'Click checkbox for show image'
+	'desc' => __('Click checkbox for show image','popupcreator')
 ));
-
+// select field 
 $metabox->addSelect(array(
 	'id' => 'popups_select_field',
-	'label' => 'Image Size ',
-	'desc' => 'select image size ',
+	'label' => __('Image Size ','popupcreator'),
+	'desc' => __('select image size ','popupcreator'),
 	'options' => array(
-		'full' => "Full",
-		'popup-landscape' => "Landscape",
-		'popup-square' => 'Squere'
+		'full' => __("Full",'popupcreator'),
+		'popup-landscape' => __("Landscape",'popupcreator'),
+		'popup-square' => __('Squere''popupcreator')
 	)
 ));
-
-
-
-
-
-// $metabox_repeater_block15_fields[] = $metabox->addText(array(
-// 	'id' => 'metabox_repeater_text_field',
-// 	'label' => 'Product Title'
-// ), true);
-
-// $metabox_repeater_block15_fields[] = $metabox->addTextArea(array(
-// 	'id' => 'metabox_repeater_textarea_field',
-// 	'label' => 'Product Description'
-// ), true);
-
-
-
-// $metabox_repeater_block15_fields[] = $metabox->addWysiwyg(array(
-// 	'id' => 'metabox_wysiwyg_field',
-// 	'label' => 'WYSIWYG Field',
-// 	'desc' => 'You can use a WYSIWYG editor to facilitate the management of HTML content.'
-// ),true);
-
-// $metabox_repeater_block15_fields[] = 
-
-
-// $metabox->addRepeaterBlock(array(
-// 	'id' => 'metabox_repeater_block15',
-// 	'label' => 'Repeater Block Field',
-// 	'desc' => 'Repeater blocks can be used to store an array of content with a dynamic length (e.g, Products).',
-// 	'fields' => $metabox_repeater_block15_fields,
-// 	'single_label' => 'Product'
-// ));
-
-
-// $metabox->addGallery(array(
-// 	'id' => 'metabox_image_field_gallery_',
-// 	'label' => 'Gallery Image Upload Field',
-// 	'desc' => 'Upload an image, or change it, by clicking the button below the preview.'
-// ));
-
-
-// $metabox->addRadio(
-// 	array(
-// 		'id' => 'metabox_radio_field',
-// 		'label' => 'Radio Field',
-// 		'desc' => 'Radio fields are a great way to choose from a selection of options.',
-// 	),
-// 	array(
-// 		'key1' => 'Value One',
-// 		'key2' => 'Value Two'
-// 	)
-// );
-
-
-// $metabox->addGallery(array(
-// 	'id' => 'metabox_image_field_gallery',
-// 	'label' => 'Gallery Image Upload Field',
-// 	'desc' => 'Upload an image, or change it, by clicking the button below the preview.'
-// ));
-
-
-
-// $metabox->addTextArea(array(
-// 	'id' => 'metabox_textarea_field',
-// 	'label' => 'Textarea Field'
-// ));
-
-
+// end metabox field for popups creator 

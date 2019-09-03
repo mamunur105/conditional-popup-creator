@@ -104,26 +104,26 @@
     }
     public function cx_popups_init() {
         $labels = array(
-            'name'               => _x( 'Popups Creator', 'post type general name', 'codexin' ),
-            'singular_name'      => _x( 'Popup', 'post type singular name', 'codexin' ),
-            'menu_name'          => _x( 'Popups', 'admin menu', 'codexin' ),
-            'name_admin_bar'     => _x( 'Popup', 'add new on admin bar', 'codexin' ),
-            'add_new'            => _x( 'Add New', 'Popup', 'codexin' ),
-            'add_new_item'       => __( 'Add New Popup', 'codexin' ),
-            'new_item'           => __( 'New Popup', 'codexin' ),
-            'edit_item'          => __( 'Edit Popup', 'codexin' ),
-            'view_item'          => __( 'View Popup', 'codexin' ),
-            'all_items'          => __( 'All Popups', 'codexin' ),
+            'name'               => _x( 'Popups Creator', 'post type general name', 'popupcreator' ),
+            'singular_name'      => _x( 'Popup', 'post type singular name', 'popupcreator' ),
+            'menu_name'          => _x( 'Popups', 'admin menu', 'popupcreator' ),
+            'name_admin_bar'     => _x( 'Popup', 'add new on admin bar', 'popupcreator' ),
+            'add_new'            => _x( 'Add New', 'Popup', 'popupcreator' ),
+            'add_new_item'       => __( 'Add New Popup', 'popupcreator' ),
+            'new_item'           => __( 'New Popup', 'popupcreator' ),
+            'edit_item'          => __( 'Edit Popup', 'popupcreator' ),
+            'view_item'          => __( 'View Popup', 'popupcreator' ),
+            'all_items'          => __( 'All Popups', 'popupcreator' ),
             'featured_image'        => __( 'Popup Image', 'text_domain' ),
-            'search_items'       => __( 'Search Popups', 'codexin' ),
-            'parent_item_colon'  => __( 'Parent Popups:', 'codexin' ),
-            'not_found'          => __( 'No Popups found.', 'codexin' ),
-            'not_found_in_trash' => __( 'No Popups found in Trash.', 'codexin' )
+            'search_items'       => __( 'Search Popups', 'popupcreator' ),
+            'parent_item_colon'  => __( 'Parent Popups:', 'popupcreator' ),
+            'not_found'          => __( 'No Popups found.', 'popupcreator' ),
+            'not_found_in_trash' => __( 'No Popups found in Trash.', 'popupcreator' )
         );
     
         $args = array(
             'labels'             => $labels,
-            'description'        => __( 'Description.', 'codexin' ),
+            'description'        => __( 'Description.', 'popupcreator' ),
             'public'             => false,
             'publicly_queryable' => false,
             'show_ui'            => true,
@@ -158,19 +158,18 @@
             $image_size = get_post_meta(get_the_ID(),'popups_select_field',true);
             $popupsurl = get_post_meta(get_the_ID(),'popups_url_field',true);
             $thumbnailimage = get_post_meta(get_the_ID(),'popups_thumbnail_field',true);
-           // $htmlmarkup = get_post_meta(get_the_ID(),'metabox_wysiwyg_custom',true);
             
             if (is_page($page_id)) { 
             ?>
                 <!-- Modal structure -->
-                <div class="data-modal" data-title="<?php echo get_the_title(); ?>" data-delay="<?php echo $delay; ?>" data-exit="<?php echo $dataexit; ?>" data-popup-id="<?php the_ID(); ?>">
+                <div class="data-modal" data-title="<?php echo esc_attr(get_the_title()); ?>" data-delay="<?php echo esc_attr($delay); ?>" data-exit="<?php echo esc_attr($dataexit); ?>" data-popup-id="<?php esc_attr(get_the_ID()); ?>">
                     <button class="close-modal" data-button="Close" title="Close"></button> 
                     <div class="modal-content-wraper">
                         <?php if($thumbnailimage == 'on'): ?>
-                        <div class="thumbnail-image">
-                            <a href="<?php  echo esc_url($popupsurl); ?>">               
-                                <?php the_post_thumbnail($image_size);  ?>
-                            </a>
+                            <div class="thumbnail-image">
+                                <a href="<?php  echo esc_url($popupsurl); ?>">               
+                                    <?php the_post_thumbnail($image_size);  ?>
+                                </a>
                             </div>
                         <?php endif ; ?>
                         <div class="data-modal-content">
