@@ -14,15 +14,8 @@
             var delay =  modalelement[index].getAttribute('data-delay');
             var datatitle =  modalelement[index].getAttribute('data-title');
             var delaymillisecond = delay * 1000;
-            
-            // var getstorage = localStorage.getItem("close_modal");
-            // localStorage.setItem("close_modal", '');
 
-            console.log(getstorage);
-            for (i in getstorage) {
-                // return ;
-            }
-
+    
             if(dataexit == 'exit'){
                 delaymillisecond = 0;
             }
@@ -40,7 +33,6 @@
                 onCreated: function () {
                     this.content.find('.close-modal').on('click', function() {
                     this.close();
-                    // localStorage.setItem("close_modal", modals[index]);
                     }.bind(this));
                 }
                 // open:funjction
@@ -57,7 +49,7 @@
             }
         } 
         if (exitmodal.length > 0 && !popupsdisplayed) {
-            window.onbeforeunload = function() {
+            window.onbeforeunload = function() {      
                 if(!popupsdisplayed){
                     for (i in exitmodal) {
                         exitmodal[i].open();//
@@ -65,7 +57,7 @@
                     popupsdisplayed = true;
                     return true;
                 } 
-                return false;   
+                return true;   
             }
             
             

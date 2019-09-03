@@ -23,7 +23,7 @@ function metabox_for_pagelist(){
 	$page_list = array();
 	foreach($pages as $post){
 		setup_postdata( $post );
-		$page_list[get_the_ID()]= get_the_title(get_the_ID());
+		$page_list[get_the_ID()]= __(get_the_title(get_the_ID()),'popupcreator');
 	}
 	return $page_list;
 }
