@@ -55,7 +55,7 @@ $metabox->addText(array(
 // number type field 
 $metabox->addNumber(array(
 	'id' => 'popups_delay',
-	'label' => __('Delay Time ','popupcreator')
+	'label' => __('Delay Time ','popupcreator'),
 	'default' => 1,
 	'desc' => __('Delay timer Secound example:1 (1s)','popupcreator')
 ));
@@ -74,7 +74,7 @@ $metabox->addSelect(array(
 	'options' => array(
 		'full' => __("Full",'popupcreator'),
 		'popup-landscape' => __("Landscape",'popupcreator'),
-		'popup-square' => __('Squere''popupcreator')
+		'popup-square' => __('Squere','popupcreator')
 	)
 ));
 // end metabox field for popups creator 
