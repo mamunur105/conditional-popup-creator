@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Conditional Popups creator
- * Plugin URI: https://profiles.wordpress.org/mamunur105/conditional-popups-creator
- * Description: This is a popup creator for 
+ * Plugin Name: Conditional Popup creator
+ * Plugin URI: https://profiles.wordpress.org/conditional-popups-creator/
+ * Description: This is a popup creator for webpage 
  * Author: Mamunur Rashid
  * Author URI: https://profiles.wordpress.org/mamunur105/
  * Text Domain: popupcreator
@@ -82,7 +82,8 @@
         if (empty($typenow)) {
             // try to pick it up from the query string
             if (!empty($_GET['post'])) {
-                $post = get_post($_GET['post']);
+                $post = sanitize_text_field($_GET['post']);
+                $post = get_post($post);
                 $typenow = $post->post_type;
             }
             
@@ -157,7 +158,7 @@
                 ?>
                 <!-- Modal structure -->
                 <div class="data-modal" data-title="<?php echo esc_attr(get_the_title()); ?>" data-delay="<?php echo esc_attr($delay); ?>" data-exit="<?php echo esc_attr($dataexit); ?>" data-popup-id="<?php esc_attr(get_the_ID()); ?>">
-                    <button class="close-modal" data-button="Close" title="Close"></button> 
+                    <button class="close-modal" data-button="<?php echo esc_attr('Close') ?>" title="<?php echo esc_attr('Close') ?>"></button> 
                     <div class="modal-content-wraper">
                         <?php if($thumbnailimage == 'on'): ?>
                             <div class="thumbnail-image">

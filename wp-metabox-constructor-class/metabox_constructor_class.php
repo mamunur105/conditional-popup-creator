@@ -118,7 +118,7 @@
 			    		if($field['type'] == 'text' || $field['type'] == 'textarea') {
 			    			update_post_meta($post->ID, $field['id'], sanitize_text_field($_POST[$field['id']]));
 			    		} else {
-			    			update_post_meta($post->ID, $field['id'], $_POST[$field['id']]);
+			    			update_post_meta($post->ID, $field['id'], sanitize_text_field($_POST[$field['id']]));
 			    		}
 				    } else {
 				    	delete_post_meta($post->ID, $field['id']);
