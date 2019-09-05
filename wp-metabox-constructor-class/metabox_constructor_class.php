@@ -2,7 +2,7 @@
 
 	if(!class_exists('Metabox_Constructor')) :
 
-		class Metabox_Constructor {
+		class CPC_Metabox_Constructor {
 
 			const BLOCK_NAMESPACE = 'mcc-box'; // (A.K.A "Metabox Constructor Class")
 			const REPEATER_INDEX_PLACEHOLDER = 'CurrentCounter';

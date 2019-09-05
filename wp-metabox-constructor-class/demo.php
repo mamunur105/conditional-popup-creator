@@ -2,7 +2,7 @@
 	
 require_once("metabox_constructor_class.php");
 // initial metabox for popups_creator post type 
-$metabox = new Metabox_Constructor(array(
+$metabox = new CPC_Metabox_Constructor(array(
 	'id' 		=> 'popups_id',
 	'title' 	=> __('Metabox Demo', 'popupcreator'),
 	'screen' 	=> 'popups_creator'

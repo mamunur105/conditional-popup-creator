@@ -11,15 +11,15 @@
  * version: 1.0
  **/
 
- class PopupCreatetor {
+ class CPC_PopupCreatetor {
 
     const version = '1.0';
 
     public function __construct(){
 		add_action( 'plugins_loaded', array( $this , 'load_textdomain' ) );
-        add_action( 'admin_enqueue_scripts',array( $this ,'admin_scripts') );
+        // add_action( 'admin_enqueue_scripts',array( $this ,'admin_scripts') );
         add_action( 'wp_enqueue_scripts',array( $this ,'frontend_scripts') );
-        add_action( 'init', array( $this ,'cx_popups_init' ) );
+        add_action( 'init', array( $this ,'popups_init' ) );
         add_action( 'init', array( $this ,'register_popup_size' ) );
         add_action( 'admin_init', array( $this ,'fileinclude' ) );
         add_action( 'wp_footer', array( $this ,'popup_markup' ) );
@@ -34,35 +34,35 @@
 		add_image_size( 'popup-square', '500', '500', true );
     }
     
-    public function admin_scripts(){
+    // public function admin_scripts(){
          
-        $_screen = get_current_screen();
-        if ( 'popups_creator' != $_screen->post_type ) {
-            return;
-        }
+    //     $_screen = get_current_screen();
+    //     if ( 'popups_creator' != $_screen->post_type ) {
+    //         return;
+    //     }
 
-        $styles = array(
-            'popmodal-admin-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/admin.css','dept'=>array(),'version'=> self::version)
-        );
-        $scripts = array(
-            'popmodal-admin-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/admin.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true)
-        );
-        foreach ($styles as $handle => $info) {
-            # code...
-            wp_enqueue_style($handle, $info['path'],$info['dept'],$info['version']);
-        }
-        foreach ($scripts as $handle => $info) {
-            # code...
-            wp_enqueue_script($handle, $info['path'], $info['dept'], $info['version'], $info['footer']);
-        }
-    }
+    //     $styles = array(
+    //         'popmodal-admin-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/admin.css','dept'=>array(),'version'=> self::version)
+    //     );
+    //     $scripts = array(
+    //         'popmodal-admin-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/admin.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true)
+    //     );
+    //     foreach ($styles as $handle => $info) {
+    //         # code...
+    //         wp_enqueue_style($handle, $info['path'],$info['dept'],$info['version']);
+    //     }
+    //     foreach ($scripts as $handle => $info) {
+    //         # code...
+    //         wp_enqueue_script($handle, $info['path'], $info['dept'], $info['version'], $info['footer']);
+    //     }
+    // }
     public function frontend_scripts(){  
         $styles = array(
             'jBox-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/jBox.all.min.css','dept'=>array(),'version'=> self::version),
             'popmodal-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/main.css','dept'=>array(),'version'=> self::version)
         );
         $scripts = array(
-            'izimodal-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/jBox.all.min.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true),
+            'jbox-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/jBox.all.min.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true),
             'popmodal-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/main.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true)
         );
         wp_enqueue_style( 'dashicons' );
@@ -97,7 +97,7 @@
         }
 
     }
-    public function cx_popups_init() {
+    public function popups_init() {
         $labels = array(
             'name'               => _x( 'Popups Creator', 'post type general name', 'popupcreator' ),
             'singular_name'      => _x( 'Popup Creator', 'post type singular name', 'popupcreator' ),
@@ -182,5 +182,5 @@
       
  }
 
- new PopupCreatetor();
+ new CPC_PopupCreatetor();
  
