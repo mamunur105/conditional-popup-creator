@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Conditional Popup creator
- * Plugin URI: https://profiles.wordpress.org/conditional-popups-creator/
+ * Plugin URI: https://wordpress.org/plugins/conditional-popups-creator/
  * Description: This is a popup creator for webpage 
  * Author: Mamunur Rashid
  * Author URI: https://profiles.wordpress.org/mamunur105/
