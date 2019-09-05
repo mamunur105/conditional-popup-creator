@@ -109,7 +109,7 @@
             'edit_item'          => __( 'Edit Popup', 'popupcreator' ),
             'view_item'          => __( 'View Popup', 'popupcreator' ),
             'all_items'          => __( 'All Popups', 'popupcreator' ),
-            'featured_image'        => __( 'Popup Image', 'text_domain' ),
+            'featured_image'     => __( 'Popup Image', 'text_domain' ),
             'search_items'       => __( 'Search Popups', 'popupcreator' ),
             'parent_item_colon'  => __( 'Parent Popups:', 'popupcreator' ),
             'not_found'          => __( 'No Popups found.', 'popupcreator' ),
