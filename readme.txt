@@ -1,20 +1,26 @@
-=== Conditional Popups creator ===
-Contributors: Mamunur Rashid
+=== Conditional Popup creator ===
+Contributors: mamunur105
+Tags: popup creator , CPC , Conditional popup Creator
 Requires at least: 5.0
-Tested up to: 5.2
+Tested up to: 5.2.3
+Stable tag: trunk.
+Requires PHP: 5.6
 License: GPLv2 or later
 
-Conditional Popups creator Is only For create Popups For your website , 
-you can set different popups for different page
+The plugin is simple popup creator 
+
 == Description ==
 
+You can design your won Style and you can show popup image or multi image , you can use shortcode , and others form ,  
 
-Major features in Conditional Popups creator  include:
+Major features in Conditional Popups creator include:
 
-* Conditional Popups creator plugin For Display popup Base on multiple time and multiple COndition That admin set,
+* Conditional Popup creator plugin For Display popup Base on multiple time and multiple Candition That admin set,
 
-== Installation ==
-
-Upload the Conditional Popups creator plugin to your blog, 
+installation :
+Upload the Conditional Popup creator plugin to your plugins directory , 
 Activate it , and create your popups , Just Check Your dashbord You can see a menu name 
-" Popup Creator " just enjoy 
+" Popup Creator" just enjoy 
+
+
+

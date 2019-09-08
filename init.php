@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Conditional Popup creator
- * Plugin URI: https://wordpress.org/plugins/conditional-popups-creator/
+ * Plugin URI: https://wordpress.org/plugins/conditional-popup-creator/
  * Description: This is a popup creator for webpage 
  * Author: Mamunur Rashid
  * Author URI: https://profiles.wordpress.org/mamunur105/
@@ -34,7 +34,7 @@
 		add_image_size( 'popup-square', '500', '500', true );
     }
     
-    // public function admin_scripts(){
+    // public function admin_scripts(){ // trnak
          
     //     $_screen = get_current_screen();
     //     if ( 'popups_creator' != $_screen->post_type ) {

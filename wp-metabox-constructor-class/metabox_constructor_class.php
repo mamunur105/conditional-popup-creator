@@ -102,12 +102,15 @@
 			*/
 			public function save() {
 				global $post_id, $post;
-				$nonce_text = sanitize_text_field($_POST[$this->_nonce_name]);
+				if(!isset($_POST[$this->_nonce_name])){
+					// $nonce_text = sanitize_text_field($_POST[$this->_nonce_name]);
+				}
+				
 				if(
 			        (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) || // prevent the data from being auto-saved
 			        (!current_user_can('edit_post', $post_id)) || // check user permissions
 			        ((!isset($_POST[$this->_nonce_name]))) || // verify nonce (same with below)
-			        (!wp_verify_nonce($nonce_text, basename(__FILE__)))
+			        (!wp_verify_nonce($_POST[$this->_nonce_name], basename(__FILE__)))
 			    ) 
 			    {
 			        return;
