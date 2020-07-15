@@ -8,12 +8,12 @@
  * Text Domain: popupcreator
  * Domain Path: /languages/
  * License: GPLv2 or later
- * version: 1.0
+ * version: 1.0.1
  **/
 
  class CPC_PopupCreatetor {
 
-    const version = '1.0';
+    const version = '1.0.1';
 
     public function __construct(){
 		add_action( 'plugins_loaded', array( $this , 'load_textdomain' ) );
@@ -34,28 +34,6 @@
 		add_image_size( 'popup-square', '500', '500', true );
     }
     
-    // public function admin_scripts(){ // trnak
-         
-    //     $_screen = get_current_screen();
-    //     if ( 'popups_creator' != $_screen->post_type ) {
-    //         return;
-    //     }
-
-    //     $styles = array(
-    //         'popmodal-admin-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/admin.css','dept'=>array(),'version'=> self::version)
-    //     );
-    //     $scripts = array(
-    //         'popmodal-admin-script'=> array('path' => plugin_dir_url(__FILE__).'assets/js/admin.js','dept'  => array('jquery'),'version'=> self::version,'footer' => true)
-    //     );
-    //     foreach ($styles as $handle => $info) {
-    //         # code...
-    //         wp_enqueue_style($handle, $info['path'],$info['dept'],$info['version']);
-    //     }
-    //     foreach ($scripts as $handle => $info) {
-    //         # code...
-    //         wp_enqueue_script($handle, $info['path'], $info['dept'], $info['version'], $info['footer']);
-    //     }
-    // }
     public function frontend_scripts(){  
         $styles = array(
             'jBox-styles'=> array('path' =>plugin_dir_url(__FILE__).'assets/css/jBox.all.min.css','dept'=>array(),'version'=> self::version),
@@ -157,8 +135,10 @@
             if (is_page($page_id)) { 
                 ?>
                 <!-- Modal structure -->
-                <div class="data-modal" data-title="<?php echo esc_attr(get_the_title()); ?>" data-delay="<?php echo esc_attr($delay); ?>" data-exit="<?php echo esc_attr($dataexit); ?>" data-popup-id="<?php esc_attr(get_the_ID()); ?>">
+                <div class="data-modal" data-title="<?php  echo esc_attr(get_the_title()); ?>" data-delay="<?php echo esc_attr($delay); ?>" data-exit="<?php echo esc_attr($dataexit); ?>" data-popup-id="<?php esc_attr(get_the_ID()); ?>">
+
                     <button class="close-modal" data-button="<?php echo esc_attr('Close') ?>" title="<?php echo esc_attr('Close') ?>"></button> 
+
                     <div class="modal-content-wraper">
                         <?php if($thumbnailimage == 'on'): ?>
                             <div class="thumbnail-image">

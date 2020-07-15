@@ -48,8 +48,8 @@ $metabox->addRadio(
 // text field
 $metabox->addText(array(
 	'id' => 'popups_url_field',
-	'label' => __('Url','popupcreator'),
-	'desc' => __('Input Url','popupcreator')
+	'label' => __('Thumbnail Image URL','popupcreator'),
+	'desc' => __('Input URL','popupcreator')
 
 ));
 // number type field 

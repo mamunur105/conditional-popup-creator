@@ -58,7 +58,7 @@
 
 			image_frame.on('select', function() {
 				var attachment = image_frame.state().get('selection').first().toJSON();
-				console.log(id);
+				
 				$('#image-'+id).val(attachment.url);
 
 				$('#js-'+id+'-image-preview').removeClass('is-hidden').attr('src', attachment.url);

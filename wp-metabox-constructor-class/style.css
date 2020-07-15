@@ -31,7 +31,7 @@
 .mcc-box__field-container .mcc-box__field-text,
 .mcc-box__field-container .mcc-box__field-number{
     height: 40px;
-	padding: 10px;
+	padding: 0 10px;
 	max-width: 350px;
 	width: 100%;
 }
